@@ -10,7 +10,7 @@ const channel = (props) => {
 
   return (
     <div>
-      <p onClick={handleClick}>{props.channel}</p>
+      <p onClick={handleClick}> {props.channel}</p>
     </div>
   );
 };
