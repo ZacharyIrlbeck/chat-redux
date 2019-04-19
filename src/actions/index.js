@@ -10,3 +10,7 @@ export function fetchMessages() {
     payload: promise
   };
 }
+
+export function sendMessage(channel, author, message) {
+
+}

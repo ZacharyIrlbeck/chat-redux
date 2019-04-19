@@ -16,8 +16,8 @@ class MessageList extends React.Component {
 
     return (
       <div>
-        {this.props.messages ? (
-          this.props.messages.map((message) => <Message message={message} />)
+        {this.props.messages.length > 0 ? (
+          this.props.messages.map(message => <Message message={message} key={message.created_at} />)
         ) : (
           <p>Nothing to display</p>
         )}
