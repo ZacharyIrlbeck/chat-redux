@@ -50,7 +50,3 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);
 
-// set the state of the message in component state, use js to update
-// and handle input, use redux for submit - in middleware submit api
-// post request in action
-

@@ -8,7 +8,7 @@ export default function(state, action) {
   }
 
   if (action.type === 'SEND_MESSAGE') {
-    return [...state, action.payload]
+    return [...state, action.payload];
   }
   return state;
 }

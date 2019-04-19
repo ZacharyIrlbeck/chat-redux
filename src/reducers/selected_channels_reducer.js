@@ -3,5 +3,10 @@ export default function(state, action) {
     return null;
   }
 
+  if (action.type === 'SET_CHANNEL') {
+    console.log('in the reducer');
+    return action.payload;
+  }
+
   return state;
 }

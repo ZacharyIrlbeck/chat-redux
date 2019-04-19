@@ -8,6 +8,7 @@ import Message from '../components/message';
 import { fetchMessages } from '../actions';
 
 class MessageList extends React.Component {
+
   componentWillMount() {
     this.props.fetchMessages(this.props.selectedChannel, 2000);
   }
@@ -16,16 +17,29 @@ class MessageList extends React.Component {
     this.interval = setInterval(this.MessageFetch.bind(this), 5000);
   }
 
+  // componentDidUpdate() {
+  //   let message = this.setLastMessage();
+  //   console.log(message);
+  // }
+
   componentWillUnmount() {
     clearInterval(this.Interval);
   }
+
+  // setLastMessage = (element) => {
+  //   console.log("in the setter", element, "last child of", element.lastChild);
+  //   this.lastMessage = element.lastChild;
+  // };
+
+  // setScroll = () => {
+  //   if (this.lastMessage) this.lastMessage.setScroll = this.lastMessage.scrollHeight;
+  // };
 
   MessageFetch() {
     this.props.fetchMessages(this.props.selectedChannel);
   }
 
   render() {
-    console.log("lets make it display!", this.props.messages);
     return (
       <div>
         {this.props.messages.length > 0 ? (

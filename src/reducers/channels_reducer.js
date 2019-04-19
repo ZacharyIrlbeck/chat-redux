@@ -1,8 +1,7 @@
 export default function(state, action) {
-    if (state === undefined) {
-      return null;
-    }
-  
-    return state;
+  if (state === undefined) {
+    return null;
   }
-  
+
+  return state;
+}
