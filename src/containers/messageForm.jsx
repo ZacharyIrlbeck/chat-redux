@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { sendMessage } from '../actions';
+import { sendMessage, fetchMessages } from '../actions';
 
 
 class MessageForm extends React.Component {
@@ -19,8 +19,8 @@ class MessageForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log('in the form', this.props, this.props.selectedChannel, this.props.currentUser, this.state.value);
     this.props.sendMessage(this.props.selectedChannel, this.props.currentUser, this.state.value);
+    this.props.fetchMessages(this.props.selectedChannel);
     // channel author message
   }
   render() {
@@ -38,7 +38,7 @@ class MessageForm extends React.Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ sendMessage }, dispatch);
+  return bindActionCreators({ sendMessage, fetchMessages }, dispatch);
 }
 
 function mapStateToProps(state) {

@@ -9,17 +9,29 @@ import { fetchMessages } from '../actions';
 
 class MessageList extends React.Component {
   componentWillMount() {
+    this.props.fetchMessages(this.props.selectedChannel, 2000);
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(this.MessageFetch.bind(this), 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.Interval);
+  }
+
+  MessageFetch() {
     this.props.fetchMessages(this.props.selectedChannel);
   }
 
   render() {
-
+    console.log("lets make it display!", this.props.messages);
     return (
       <div>
         {this.props.messages.length > 0 ? (
           this.props.messages.map(message => <Message message={message} key={message.created_at} />)
         ) : (
-          <p>Nothing to display</p>
+          <p>Fuck you</p>
         )}
       </div>
     );
