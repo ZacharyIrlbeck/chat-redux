@@ -7,5 +7,9 @@ export default function(state, action) {
     return action.payload;
   }
 
+  if (action.type === 'SEND_MESSAGE') {
+    const messagesArray = [...state.messages, action.payload];
+    return Object.assign({}, state, { messages: messagesArray });
+  }
   return state;
 }
